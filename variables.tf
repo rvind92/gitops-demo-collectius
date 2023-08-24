@@ -13,3 +13,13 @@ variable "dns_prefix" {
 variable "cluster_name" {
   default = "ak8s"
 }
+
+variable "sp_client_id" {
+  type        = string
+  sensitive   = true
+}
+
+variable "sp_client_secret" {
+  type        = string
+  sensitive   = true
+}
