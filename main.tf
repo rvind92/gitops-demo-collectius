@@ -24,7 +24,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "main" {
-  name     = "Neo_Collectius_Group"
+  name     = var.resource_group_name
   location = local.location
 }
 
@@ -49,6 +49,33 @@ resource "azurerm_service_plan" "main" {
   location            = azurerm_resource_group.main.location
   os_type             = "Linux"
   sku_name            = "Y1"
+}
+
+resource "azurerm_kubernetes_cluster" "ak8s" {
+  name                = var.cluster_name
+  location            = local.location
+  resource_group_name = azurerm_resource_group.main.name
+  dns_prefix          = var.dns_prefix
+
+  default_node_pool {
+    name       = "agentpool"
+    node_count = var.agent_count
+    vm_size    = "Standard_B4ms"
+  }
+
+  service_principal {
+    client_id     = var.sp_client_id
+    client_secret = var.sp_client_secret
+  }
+
+  network_profile {
+    load_balancer_sku = "standard"
+    network_plugin    = "kubenet"
+  }
+
+  tags = {
+    Environment = "Dev"
+  }
 }
 
 resource "azurerm_linux_function_app" "main" {
