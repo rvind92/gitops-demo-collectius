@@ -63,10 +63,10 @@ resource "azurerm_kubernetes_cluster" "ak8s" {
     vm_size    = "Standard_B4ms"
   }
 
-  service_principal {
-    client_id     = var.client_id
-    client_secret = var.client_secret
-  }
+  #service_principal {
+  #  client_id     = var.client_id
+  #  client_secret = var.client_secret
+  #}
 
   network_profile {
     load_balancer_sku = "Standard"
