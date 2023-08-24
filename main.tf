@@ -1,4 +1,4 @@
-locals {
+    locals {
   location = "westus3"
   prefix   = "collectiusdemo"
 }
