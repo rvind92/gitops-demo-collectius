@@ -42,13 +42,9 @@ jobs:
         id: init
         run: terraform init -input=false -migrate-state -force-copy
 
-      - name: Echo Values
-        id: echo
-        run: echo "/subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ vars.RESOURCE_GROUP }}" | sed 's/./& /g'
-
       - name: Terraform Import
         id: import
-        run: terraform import azurerm_resource_group.main "/subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ env.RESOURCE_GROUP }}"
+        run: terraform import azurerm_resource_group.main "/subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ vars.RESOURCE_GROUP }}"
 
       - name: Terraform Validate
         id: validate
