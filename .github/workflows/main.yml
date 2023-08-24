@@ -44,7 +44,7 @@ jobs:
 
       - name: Echo Values
         id: echo
-        run: echo "/subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ env.RESOURCE_GROUP }}" | sed 's/./& /g'
+        run: echo "/subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ vars.RESOURCE_GROUP }}" | sed 's/./& /g'
 
       - name: Terraform Import
         id: import
