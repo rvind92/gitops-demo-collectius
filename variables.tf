@@ -15,11 +15,11 @@ variable "cluster_name" {
 }
 
 variable "sp_client_id" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 variable "sp_client_secret" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
