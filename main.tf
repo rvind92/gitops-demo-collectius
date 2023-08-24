@@ -29,7 +29,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_storage_account" "main" {
-  name                     = "${local.prefix}storageacct"
+  name                     = "${local.prefix}storacc"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
@@ -37,7 +37,7 @@ resource "azurerm_storage_account" "main" {
 }
 
 resource "azurerm_application_insights" "main" {
-  name                = "${local.prefix}-appinsights"
+  name                = "${local.prefix}-appins"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   application_type    = "web"
