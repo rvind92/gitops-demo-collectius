@@ -69,15 +69,3 @@ resource "azurerm_kubernetes_cluster" "ak8s" {
     Environment = "Dev"
   }
 }
-
-resource "azurerm_linux_function_app" "main" {
-  name                = "${local.prefix}-function"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
-
-  service_plan_id            = azurerm_service_plan.main.id
-  storage_account_name       = azurerm_storage_account.main.name
-  storage_account_access_key = azurerm_storage_account.main.primary_access_key
-
-  site_config {}
-}
