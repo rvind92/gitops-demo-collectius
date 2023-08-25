@@ -69,4 +69,3 @@ resource "azurerm_kubernetes_cluster" "ak8s" {
     Environment = "Dev"
   }
 }
-}
