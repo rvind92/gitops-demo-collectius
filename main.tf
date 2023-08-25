@@ -56,9 +56,8 @@ resource "azurerm_kubernetes_cluster" "ak8s" {
     vm_size    = "Standard_B4ms"
   }
 
-  service_principal {
-    client_id     = var.sp_client_id
-    client_secret = var.sp_client_secret
+  identity {
+    type = "SystemAssigned"
   }
 
   network_profile {
