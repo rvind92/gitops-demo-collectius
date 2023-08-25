@@ -56,6 +56,10 @@ resource "azurerm_kubernetes_cluster" "ak8s" {
     vm_size    = "Standard_B4ms"
   }
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   network_profile {
     load_balancer_sku = "standard"
     network_plugin    = "kubenet"
