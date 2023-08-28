@@ -20,7 +20,7 @@ https://docs.google.com/presentation/d/1DbutyoNZWdzoeXGeP98yBQwrXdGVYIfoTgdMx4cO
     1. kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 8. Verify you can access the ArgoCD UI in your browser by typing in https://localhost:8080.
 9. Type in admin as the username.
-10. For the password, execute this command on your open command line or terminal:
+10. For the password, execute this command on your open command line or terminal (this should be deleted, kept temporarily for demo):
     1. kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 11. Copy the password and use it for the login.
 12. You should see the list of apps that are deployed, in this case, there is only express-app.
